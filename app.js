@@ -16,16 +16,30 @@
 // }
 
 // välimõõdud
-let valiKorgus = window.outerHeight;
-let valiLaius = window.outerWidth;
+// let valiKorgus = window.outerHeight;
+// let valiLaius = window.outerWidth;
 // console.log(valiLaius)
 
 // sisemõõdud
-let siseKorgus = window.innerHeight;
-let siseLaius = window.innerWidth;
+// let siseKorgus = window.innerHeight;
+// let siseLaius = window.innerWidth;
 // console.log(siseLaius)
 
 // scroll
-scrolY = window.scrollY;
-scrolX = window.scrollX;
-console.log(scrolY);
+// scrolY = window.scrollY;
+// scrolX = window.scrollX;
+// console.log(scrolY);
+
+// location objekt
+let objekt = window.location;
+let hostname = window.location.hostname;
+let port = window.location.port;
+let href = window.location.href;
+let search = window.location.search;
+
+// redirect
+// window.location.href = 'https://khk.ee';
+// reload
+// window.location.reload();
+
+console.log(search);
