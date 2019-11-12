@@ -31,4 +31,9 @@ sisu = document.links[0].classList[1]; // klasside massiiv ja sealt elemendi lug
 
 // pildid
 sisu = document.images;
+
+// skriptid
+sisu = document.scripts;
+sisu = document.scripts[0].getAttribute('src'); // materialize js
+sisu = document.scripts[1].getAttribute('src'); // local js
 console.log(sisu);
