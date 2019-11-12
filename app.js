@@ -1,45 +1,18 @@
-// window objects / methods / properties
+// document
 
-// alert
-// window.alert('Tere Hommikust!');
-// alert('Tere Hommikust!');
+let sisu;
 
-// propt
-// const sisend = prompt('Sisesta oma nimi');
-// alert('Tere Hommikust, ' + sisend + '!');
+sisu = document; // sisu html-is
+sisu = document.all; // html tagid kasutamisjärjekorras
+sisu = document.all[2]; // konkreetne html tag
+sisu = document.all.length; // palju on html tagi kasutusel
 
-// confirm
-// if(confirm('Kas oled nõus?')){
-//   console.log('jah');
-// } else {
-//   console.log('ei');
-// }
-
-// välimõõdud
-// let valiKorgus = window.outerHeight;
-// let valiLaius = window.outerWidth;
-// console.log(valiLaius)
-
-// sisemõõdud
-// let siseKorgus = window.innerHeight;
-// let siseLaius = window.innerWidth;
-// console.log(siseLaius)
-
-// scroll
-// scrolY = window.scrollY;
-// scrolX = window.scrollX;
-// console.log(scrolY);
-
-// location objekt
-let objekt = window.location;
-let hostname = window.location.hostname;
-let port = window.location.port;
-let href = window.location.href;
-let search = window.location.search;
-
-// redirect
-// window.location.href = 'https://khk.ee';
-// reload
-// window.location.reload();
-
-console.log(search);
+// document properties - oobjekti omadused
+sisu = document.head; // head sisu
+sisu = document.body; // body sisu
+sisu = document.doctype; // doctype
+sisu = document.domain;
+sisu = document.URL;
+sisu = document.characterSet;
+sisu = document.contentType;
+console.log(sisu);
