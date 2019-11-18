@@ -1,53 +1,31 @@
 // document meetodid
-// node omadused ja meetodid
+// elementide loomine
 
-let nimekiri = document.querySelectorAll('ul.collection');
-let nimekirjaElement = document.querySelectorAll('li.collection-item');
+// loo element
+const liElement = document.createElement('li');
+// lisa klass
+liElement.className = 'collection-item';
+// lisa id
+liElement.id = 'new-item';
+// lisa atribuut
+liElement.setAttribute('title', 'Uus element');
+// lisa teksti väljund
+// liElement.innerHTML = 'Uus element';
+liElement.textContent = 'Uus element';
 
-console.log(nimekiri);
-console.log(nimekirjaElement);
+// loome lingi element
+const link = document.createElement('a');
+// lisame vajalikud klassid
+link.className = 'delete-item secondary-content';
+// lisame kustutamisikoon
+link.innerHTML = '<i class="fa fa-remove"></i>';
 
-nimekiri = document.querySelector('ul.collection');
-console.log(nimekiri);
+// lisame link listi elemendi sisse
+liElement.appendChild(link);
 
-sisu = nimekiri.childNodes;
-sisu = nimekiri.childNodes[0];
-sisu = nimekiri.childNodes[0].nodeName;
-sisu = nimekiri.childNodes[3].nodeType;
-;
-/*
-erinevad node tüübid
-1 - element
-2 - atribuut
-3 - tekst
-8 - kommentaar
-9 - dokument ise
-10 - doctype
-*/
+// leiame ul element DOM-ist
+ulElement = document.querySelector('ul.collection');
+// lisa liElement ul elemendile
+ulElement.appendChild(liElement);
 
-sisu = nimekiri.children;
-sisu = nimekiri.children[1];
-nimekiri.children[1].textContent = 'Õpi rohkem JS';
-sisu = nimekiri.children[2].children[0].id = 'katse';
-console.log(sisu);
-console.log(nimekiri.children[2].children[0]);
-
-sisu = nimekiri.firstChild; // node type
-sisu = nimekiri.firstElementChild; // value
-
-sisu = nimekiri.lastChild; // node type
-sisu = nimekiri.lastElementChild; // value
-
-sisu = nimekiri.childElementCount;
-
-nimekirjaElement = document.querySelector('li.collection-item:nth-child(2)');
-sisu = nimekirjaElement.parentNode;
-sisu = nimekirjaElement.parentElement;
-sisu = nimekirjaElement.parentElement.parentElement;
-
-sisu = nimekirjaElement.nextSibling; //node type
-sisu = nimekirjaElement.nextElementSibling; // value
-
-sisu = nimekirjaElement.previousSibling; //node type
-sisu = nimekirjaElement.previousElementSibling; // value
-console.log(sisu);
+console.log(ulElement);
