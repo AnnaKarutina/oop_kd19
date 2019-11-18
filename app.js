@@ -17,4 +17,16 @@ uusPealkiri.textContent = 'Uued ülesanded';
 // asenda vana pealkiri uuega
 divCardAction.replaceChild(uusPealkiri, vanaPealkiri);
 
-console.log(divCardAction);
+// asenda span h3 vastu
+
+// loo uus pealkiri
+const pohiPealkiri = document.createElement('h3');
+// täienda sisuga
+pohiPealkiri.textContent = 'Ülesanded';
+// leia pealkirja vanem div
+const divCardContent = document.querySelector('.card-content');
+// leia divi vana pealkiri
+const vanaPohiPealkiri = document.querySelector('span');
+// asenda antud divi vanem pealkiri uuega
+divCardContent.replaceChild(pohiPealkiri, vanaPohiPealkiri);
+console.log(pohiPealkiri);
