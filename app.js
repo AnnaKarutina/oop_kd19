@@ -12,4 +12,24 @@ const ulElement = document.querySelector('ul');
 // li on ul child elemendid
 ulElement.removeChild(liEmenedid[1]);
 
-console.log(ulElement);
+// nimekirja element
+const liElement = liEmenedid[0]; 
+// kustutamislink
+const link = liElement.children[0];
+// class ja atribute - kustutamine
+// class
+let sisu = link.className;
+sisu = link.classList;
+sisu = link.classList[1];
+link.classList.remove('secondary-content');
+link.classList.add('secondary-content');
+sisu = link.classList;
+sisu = link;
+
+// atrubuut
+sisu = link.getAttribute('href');
+link.setAttribute('href', 'https://google.com');
+link.setAttribute('title', 'Google');
+link.removeAttribute('title');
+sisu = link;
+console.log(sisu);
