@@ -4,69 +4,50 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <!-- materialize css -->
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <!-- font awesome cdn -->
-  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-  <title>OOP</title>
+  <!-- skeleton cdn algus -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+  <!-- skeleton cdn lõpp -->
+  <title>Raamatud</title>
 </head>
 <body>
   <div class="container">
-    <div class="row">
-      <div class="col s12">
-        <div class="card">
-          <!-- card-content algus -->
-          <div class="card-content">
-            <span id="title" class="card-title">Ülesanded</span>
-              <form id="add-task">
-                <div class="row">
-                  <div class="input-field col s12">
-                    <label for="task">Uus ülesanne</label>
-                    <input type="text" id="task" value="Õpi OOP JavaScript">
-                  </div>
-                </div>
-                <input type="submit" value="Lisa ülesanne" class="btn">
-              </form>
-          </div>
-          <!-- card-content lõpp -->
-          <!-- card-action algus -->
-          <div class="card-action">
-            <h5>Lisatud ülesanded</h5>
-            <ul class="collection">
-              <!-- ülesanne 1 -->
-              <li class="collection-item">
-                Õpi OOP JavaScript
-                <a href="#" class="delete-item secondary-content">
-                  <i class="fa fa-remove"></i>
-                </a>
-              </li>
-              <!-- ülesanne 2 -->
-              <li class="collection-item">
-                Õpi OSA
-                <a href="#" class="delete-item secondary-content">
-                  <i class="fa fa-remove"></i>
-                </a>
-              </li>
-              <!-- ülesanne 3 -->
-              <li class="collection-item">
-                Õpi Infoturve
-                <a href="#" class="delete-item secondary-content">
-                  <i class="fa fa-remove"></i>
-                </a>
-              </li>
-            </ul>
-            <a href="#" class="btn black clear-tasks">Kustuta kõik ülesanded</a>
-          </div>
-          <!-- card-action lõpp -->
-        </div>
+    <h1>Raamatud</h1>
+    <!-- raamatu lisamise vormi algus -->
+    <form id="book-form">
+      <!-- vormi sisestusväli - pealkiri -->
+      <div>
+        <label for="title">Pealkiri</label>
+        <input type="text" id="title" class="u-full-width">
       </div>
-    </div>
+      <!-- vormi sisestusväli - autor -->
+      <div>
+        <label for="author">Autor</label>
+        <input type="text" id="author" class="u-full-width">
+      </div>
+      <!-- vormi sisestusväli - ISBN -->
+      <div>
+        <label for="isbn">ISBN</label>
+        <input type="text" id="isbn" class="u-full-width">
+      </div>
+      <!-- nupp -->
+      <div>
+        <input type="submit" value="Lisa" class="u-full-width">
+      </div>
+    </form>
+    <!-- raamatu lisamise vormi lõpp -->
+    <!-- raamatute kuvamine - algus -->
+    <table class="u-full-width">
+      <thead>
+        <tr>
+          <th>Pealkiri</th>
+          <th>Autor</th>
+          <th>ISBN</th>
+        </tr>
+      </thead>
+      <tbody id="book-list"></tbody>
+    </table>
+    <!-- raamatute kuvamine - lõpp -->
   </div>
-  <!-- materialize js -->
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <!-- lokaalne js -->
   <script src="app.js"></script>
 </body>
 </html>
