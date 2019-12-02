@@ -21,6 +21,7 @@ KL.prototype.puhastaSisend = function(){
 
 // raamatu lisamine tabelisse
 KL.prototype.lisaRaamatTabelisse = function(r){
+  console.log(r);
   // loome tabeli rida
   const rida = document.createElement('tr');
   // täidame rida tabeli andmetega
@@ -81,12 +82,37 @@ KL.prototype.loeRaamatud = function(){
 // raamatu salvestamine LS-sse
 KL.prototype.salvestaRaamat = function(r){
   // tekitame raamatute massiiv
-  raamatud = this.loeRaamatud();
+  const raamatud = this.loeRaamatud();
   // lükame uue raamatud andmed massiivi
   raamatud.push(r);
   // lisame andmed LS-sse
   localStorage.setItem('raamatud', JSON.stringify(raamatud));
-  console.log(raamatud);
+}
+
+// salvestatud raamatute näitamine
+KL.prototype.naitaRaamatud = function(){
+  // vaatame, millised raamatud on olemas
+  const raamatud = this.loeRaamatud();
+  raamatud.forEach(function(raamat){
+    // loeme andmed LS-st ühekaupa
+    // ja teisendame Raamat objektiks
+    const r = new Raamat(raamat['autor'], raamat['pealkiri'], raamat['isbn']);
+    // Loome kl objekt väljastamiseks
+    const kl = new KL();
+    // väljastame tabeli rida
+    kl.lisaRaamatTabelisse(r);
+  });
+}
+
+// kirjeldame andmete lugemise sündmust LS-st
+document.addEventListener('DOMContentLoaded', raamatuteTabel);
+
+// raamatute tabeli funktsioon
+function raamatuteTabel(e){
+  // loome kasutaja liidese objekt temaga opereerimiseks
+  const kl = new KL();
+  // kutsume raamatute näitamist funktsiooni
+  kl.naitaRaamatud();
 }
 
 // kirjeldame raamatu lisamise sündmust
@@ -110,6 +136,7 @@ function lisaRaamat(e){
   } else {
     // muidu
     // lisame sisestatud raamat tabelisse
+    console.log(raamat);
     kl.lisaRaamatTabelisse(raamat);
     // salvestame raamatu andmed LS-sse
     kl.salvestaRaamat(raamat);
@@ -132,7 +159,7 @@ function kustutaRaamat(e){
   // kutsume tabelis oleva raamatu kustutamise
   // funktsioon
   onKustutatud = kl.kustutaRaamatTabelist(e.target);
-
+  
   // väljastame vastav teade
   if(onKustutatud){
     kl.teade('Raamat on kustutatud', 'valid');
