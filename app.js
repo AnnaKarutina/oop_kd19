@@ -35,10 +35,10 @@ KL.prototype.lisaRaamatTabelisse = function(r){
 }
 
 // teade väljastamine
-KL.prototype.teade = function(s){
+KL.prototype.teade = function(s, stiil){
   // loome div, kuhu lisada teade sõnum
   const div = document.createElement('div');
-  div.className = 'alert';
+  div.className = `alert ${stiil}`;
   // lisame sõnumi tekst divi sisse
   const tekst = document.createTextNode(s);
   div.appendChild(tekst);
@@ -71,12 +71,12 @@ function lisaRaamat(e){
   // kui mingid andmed on puudu, 
   // siis anname märku
   if(pealkiri == '' | autor == '' | isbn == ''){
-    kl.teade('Tuleb täita kõik väljad!');
+    kl.teade('Tuleb täita kõik väljad!', 'invalid');
   } else {
     // muidu
     // lisame sisestatud raamat tabelisse
     kl.lisaRaamatTabelisse(raamat);
-    kl.teade('Raamat on lisatud!');
+    kl.teade('Raamat on lisatud!', 'valid');
   }
 
   // puhastame väljad sisestatud andmetest
