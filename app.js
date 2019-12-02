@@ -38,6 +38,7 @@ KL.prototype.lisaRaamatTabelisse = function(r){
 KL.prototype.teade = function(s){
   // loome div, kuhu lisada teade sõnum
   const div = document.createElement('div');
+  div.className = 'alert';
   // lisame sõnumi tekst divi sisse
   const tekst = document.createTextNode(s);
   div.appendChild(tekst);
@@ -46,6 +47,11 @@ KL.prototype.teade = function(s){
   const vorm = document.getElementById('book-form');
   // lisame teade dokumendi
   konteiner.insertBefore(div, vorm);
+
+  // kustutame teade 5 sekundi möödumisel
+  setTimeout(function(){ 
+    document.querySelector('.alert').remove();
+   }, 5000);
 }
 
 // kirjeldame raamatu lisamise sündmust
