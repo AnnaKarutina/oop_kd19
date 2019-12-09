@@ -1,1 +1,0 @@
-# Objektorienteeritud programmeerimine - KD19

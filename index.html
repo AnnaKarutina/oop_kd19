@@ -4,55 +4,58 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <!-- local style -->
-  <link rel="stylesheet" href="style.css">
-  <!-- skeleton cdn algus -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
-  <!-- skeleton cdn lõpp -->
-  <title>Raamatud</title>
+  <!-- bootstrap css -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <!-- bootstrap css end -->
+  <title>Weather</title>
 </head>
 <body>
   <div class="container">
-    <h1>Raamatud</h1>
-    <!-- raamatu lisamise vormi algus -->
-    <form id="book-form">
-      <!-- vormi sisestusväli - pealkiri -->
-      <div>
-        <label for="title">Pealkiri</label>
-        <input type="text" id="title" class="u-full-width">
+    <div class="row">
+      <div class="col mx-auto text-center m-5 p-5 bg-info rounded">
+        <h1 class="text-white">City</h1>
+        <ul class="list-group m-3">
+          <li class="list-group-item">Temperature</li>
+          <li class="list-group-item">Clouds</li>
+        </ul>
+        <hr>
+        <button class="btn btn-secondary" data-toggle="modal" data-target="#changeCity">Change city</button>
       </div>
-      <!-- vormi sisestusväli - autor -->
-      <div>
-        <label for="author">Autor</label>
-        <input type="text" id="author" class="u-full-width">
-      </div>
-      <!-- vormi sisestusväli - ISBN -->
-      <div>
-        <label for="isbn">ISBN</label>
-        <input type="text" id="isbn" class="u-full-width">
-      </div>
-      <!-- nupp -->
-      <div>
-        <input type="submit" value="Lisa" class="u-full-width">
-      </div>
-    </form>
-    <!-- raamatu lisamise vormi lõpp -->
-    <!-- raamatute kuvamine - algus -->
-    <table class="u-full-width">
-      <thead>
-        <tr>
-          <th>Pealkiri</th>
-          <th>Autor</th>
-          <th>ISBN</th>
-        </tr>
-      </thead>
-      <tbody id="book-list"></tbody>
-    </table>
-    <!-- raamatute kuvamine - lõpp -->
+    </div>
   </div>
-  <script src="Raamat.js"></script>
-  <script src="KL.js"></script>
-  <script src="LS.js"></script>
-  <script src="app_oop.js"></script>
+  <!-- modal changeCity -->
+  <div class="modal fade" id="changeCity" tabindex="-1" role="dialog" aria-labelledby="changeCityLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="changeCityLabel">Choose Your Location</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>  
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="city">City</label>
+              <input type="text" id="city" class="form-control">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-info">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- bootstrap scripts -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <!-- local srctipts -->
+  <script src="Weather.js"></script>
+  <script src="UI.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
