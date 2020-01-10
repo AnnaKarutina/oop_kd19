@@ -1,62 +1,52 @@
-document.getElementById('btn1').addEventListener('click', getTextData);
-document.getElementById('btn2').addEventListener('click', getJsonData);
-document.getElementById('btn3').addEventListener('click', getJsonAPI);
+// define variables
+const taskInput = document.querySelector('#task');
+const taskList = document.querySelector('.collection');
+const clearBtn = document.querySelector('#clear-tasks');
+const filter = document.querySelector('#filter');
 
-// remote API - remote json
-function getJsonAPI() {
-  fetch('https://api.github.com/users')
-  .then(function(res) {
-    return res.json();
-  })
-  .then(function(data) {
-    console.log(data);
-    let out = '';
-    out = '';
-    data.forEach(function(users){
-      out = out + `<li>${users.login} `;
-      out = out + `<img src="${users.avatar_url}" width="50"></li>`;
-    });
-    document.getElementById('out').innerHTML = out;
-  })
-  .catch(function(error) {
-    console.log(error);
-  });
+// page reload event
+document.addEventListener('DOMContentLoaded', getTasks);
+// add task to task list
+document.getElementById('task-form').addEventListener('submit', addTask);
+// remove task from task list
+document.querySelector('.collection').addEventListener('click', removeTask);
+// clear task list
+document.getElementById('clear-tasks').addEventListener('click', clearTasks);
+// filter task for task list
+// filter.addEventListener('keyup', filterTasks);
+
+function getTasks(e) {
+  ui = new UI();
+  ui.showTasks();
+  e.preventDefault();
 }
 
-// local json file
-function getJsonData() {
-  fetch('data.json')
-  .then(function(res) {
-    return res.json();
-  })
-  .then(function(data) {
-    console.log(data);
-    let out = '';
-    out = '';
-    data.forEach(function(timetable){
-      out = out + `<li>${timetable.opetaja} `;
-      out = out + `- ${timetable.aine}</li>`;
-      console.log(out);
-    });
-    document.getElementById('out').innerHTML = out;
-  })
-  .catch(function(error) {
-    console.log(error);
-  })
+function addTask(e) {
+  const taskInput = document.getElementById('task').value;
+  const task = new Task(taskInput);
+  const ui = new UI();
+  const ls = new LS();
+  if(taskInput == '' ){
+    alert('Lisa uus ülesanne!');
+  } else {
+    ui.addTaskToList(task);
+    ui.clearTaskInput();
+    ls.addTask(task);
+  }
+  e.preventDefault();
 }
 
-// local text file
-function getTextData() {
-  fetch('text.txt')
-  .then(function(res) {
-    return res.text();
-  })
-  .then(function(data) {
-    console.log(data);
-    document.getElementById('out').innerHTML = data;
-  })
-  .catch(function(error) {
-    console.log(error);
-  })
+function removeTask(e) {
+  const ui = new UI();
+  const ls = new LS();
+  ui.removeTaskFromList(e.target);
+  console.log(e.target.parentElement.parentElement.innerText);
+  ls.removeTask(e.target.parentElement.parentElement.innerText);
+  e.preventDefault();
 }
 
+function clearTasks(e) {
+  const ui = new UI();
+  ui.clearTasks();
+  e.preventDefault();
+}

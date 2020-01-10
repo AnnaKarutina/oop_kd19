@@ -1,24 +1,52 @@
-<!DOCTYPE html>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <!-- sceleton css -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" integrity="sha256-ECB9bbROLGm8wOoEbHcHRxlHgzGqYpDtNTgDTyDz0wg=" crossorigin="anonymous" />
-  <title>Data Fetch</title>
+  <!-- materializecss.com css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!-- fontawesome cdn -->
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <title>Ülesanded</title>
 </head>
 <body>
   <div class="container">
-    <h2>Data Fetch</h2>
-    <button id="btn1">Text</button>
-    <button id="btn2">JSON</button>
-    <button id="btn3">API</button>
-    <hr>
-    <div id="out"></div>
+    <div class="row">
+      <div class="col s12">
+        <div class="card">
+          <div class="card-content">
+            <h4 class="card-title">Uus Ülesanne</h4>
+            <div class="row">
+              <form id="task-form">
+                <div class="input-field col s12">
+                  <input type="text" id="task">
+                  <label for="task">Uus Ülesanne</label>
+                </div>
+                <input type="submit" value="Lisa Ülesanne" class="btn">
+              </form>
+            </div>
+          </div>
+          <div class="card-action">
+              <h4 class="card-title">Minu ülesanded</h4>
+              <div class="input-field col s12">
+                  <input type="text" id="filter">
+                  <label for="filter">Otsi ülesanne</label>
+                </div>
+              <ul class="collection"></ul>
+              <a href="#" id="clear-tasks" class="btn grey">Kustuta Ülesanded</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <!-- local js file -->
+  <!-- materializecss.com js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <!-- local java script -->
+  <script src="Task.js"></script>
+  <script src="UI.js"></script>
+  <script src="LS.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
